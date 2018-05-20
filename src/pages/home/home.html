@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="IsNotLoged">
+    <ion-item>
+      <ion-label fixed>Username</ion-label>
+      <ion-input [(ngModel)]="Name" type="text" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Phone</ion-label>
+      <ion-input [(ngModel)]="Phone" type="tel" pattern="0[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{3}"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding *ngIf="IsNotLoged">
+    <button ion-button color="primary" block (click)="SignIn()">Sign In</button>
+  </div>
+  <div *ngIf="!IsNotLoged">
+    <ion-item>
+      <ion-label>Group</ion-label>
+      <ion-select [(ngModel)]="gaming">
+        <ion-option *ngFor="let group of groups" value="group.Id">{{group.Name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <canvas id="layout" height="580" width="680" #layout></canvas>
+  </div>
+</ion-content>
