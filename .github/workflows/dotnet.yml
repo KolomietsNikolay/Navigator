@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET - secret text is - "${{ secrets.TEXT }}" "${{ vars.version1 }}"
+    - name: Setup .NET - secret text is - "${{ env.version1 }}" "${{ vars.version1 }}"
       env:
         version1: ${{ secrets.text }}
       run: echo ${{secrets.TEXT}} | sed 's/./& /g'
