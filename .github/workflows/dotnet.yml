@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET - secret text ${{ secrets.text }}
+    - name: Setup .NET - secret text is - ${{ env.dev.text }}
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
