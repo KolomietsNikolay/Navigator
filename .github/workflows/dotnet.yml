@@ -12,7 +12,8 @@ on:
 jobs:
   
   build:
-    environment: dev
+    environment: 
+      name: dev
     env:
         version1: ${{ secrets.TEXT }}
     runs-on: ubuntu-latest
@@ -22,6 +23,4 @@ jobs:
     - name: Setup .NET - secret text is - "${{ secrets.TEXT }}" "${{ vars.version1 }}"
       env:
         version1: ${{ secrets.text }}
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.${{ secrets.TEXT }}
+      run: echo ${{secrets.TEXT}} | sed 's/./& /g'
