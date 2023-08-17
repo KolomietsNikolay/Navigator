@@ -14,14 +14,14 @@ jobs:
   build:
     environment: dev
     env:
-        version1: ${{ secrets.text }}
+        version1: ${{ secrets.TEXT }}
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET - secret text is - "${{ secrets.text }}" "${{ vars.version1 }}"
+    - name: Setup .NET - secret text is - "${{ secrets.TEXT }}" "${{ vars.version1 }}"
       env:
         version1: ${{ secrets.text }}
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.${{ vars.version1 }}
+        dotnet-version: 6.0.${{ secrets.TEXT }}
