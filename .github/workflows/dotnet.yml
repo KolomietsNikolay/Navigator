@@ -22,4 +22,4 @@ jobs:
         version1: ${{ secrets.text }}
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.${{ version1 }}
+        dotnet-version: 6.0.${{ secrets.text }}
